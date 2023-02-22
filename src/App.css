@@ -1,38 +1,139 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+  height: 100vh;
   background-color: #282c34;
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container {
+  width: 500px;
+  height: 600px;
+  background-color: #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 30px 50px;
+  position: relative;
+  
+}
+.mess-container {
+  height: 90%;
+  overflow-y: scroll;
+}
+.mess-container::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.mess {
+  display: flex; 
+  align-items: center;
+  gap: 5px;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+.mess-bot {
+  display: flex; 
+  align-items: center;
+  gap: 5px;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.mess-bot img {
+  height: 30px;
+  width: 30px;
+}
+.typing-demo {
+  animation: typing 2s steps(22), cursor .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes cursor {
+  50% {
+    border-color: transparent;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@keyframes typing {
+  from {width: 0px}
+}
+
+@keyframes noneCursor {
+  100% {
+      border: none;
+  }
+}
+.mess span {
+  font-size: 15px;
+  background-color: #282c34;
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+
+}
+
+.mess p {
+  text-align: left;
+  width: 400px;
+  overflow: auto;
+}
+.bot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+}
+
+input {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  padding: 5px 20px;
+  background-color: #282c34;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 19px;
+}
+@media (max-width: 450px) {
+  .container {
+    padding: 10px 2 0px;
+    width: 400px;
+    height: 100vh;
+  }
+  .mess-container {
+    height: 90%;
+    width: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  .bot {
+    left: 25%;
+    bottom: 50px;
   }
 }
